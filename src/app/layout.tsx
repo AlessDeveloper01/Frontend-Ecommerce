@@ -1,12 +1,16 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import {inter} from '../config/fonts'
+import { Provider } from '@/components';
 
 
 export const metadata: Metadata = {
-  title: 'Teslo Shop |',
-  description: 'Una tienda donde puedes encontrar magia',
-}
+    title: {
+    template: "%s | Teslo Shop",
+      default: "Home | Teslo Shop",
+    },
+    description: "Una tienda donde puedes encontrar magia",
+};
 
 export default function RootLayout({
   children,
@@ -14,8 +18,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  )
+      <html lang="en">
+          <body className={inter.className}>
+              <Provider>{children}</Provider>
+          </body>
+      </html>
+  );
 }

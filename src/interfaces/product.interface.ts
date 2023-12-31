@@ -1,4 +1,5 @@
 export interface Product {
+    id: string;
     description: string;
     images: string[];
     inStock: number;
@@ -7,8 +8,18 @@ export interface Product {
     slug: string;
     tags: string[];
     title: string;
-    type: ValidTypes;
+    // type: ValidTypes;
     gender: Category;
+}
+
+export interface ProductInCart {
+    quantity: number;
+    id: string;
+    slug: string;
+    title: string;
+    price: number;
+    size: Size;
+    image: string;
 }
 
 export type Category = 'men'|'women'|'kid'|'unisex'
